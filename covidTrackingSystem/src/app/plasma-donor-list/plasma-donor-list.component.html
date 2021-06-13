@@ -1,0 +1,35 @@
+<div class="card text-center m-3">
+
+
+
+  <div class="container ">
+    <h2>Plasma Donor List</h2>
+    <a class="btn btn-success  " [routerLink]="['/add-donor']">Add Donor</a>
+
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Donor Full Name</th>
+          <th>Donor Phone No.</th>
+          <th>Donor Blood Group</th>
+          <th>View</th>
+          <th>Update</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let x of donerList">
+          <td>{{x.donorName}}</td>
+          <td>{{x.phoneNumber}}</td>
+          <td>{{x.bloodGroup}}</td>
+          <td><button class="btn  btn-primary" (click)="viewDonor(x.donorId)">View</button></td>
+          <td><button class="btn  btn-warning" (click)="updateDonor(x.donorId)">Update</button></td>
+          <td><button class="btn  btn-danger" (click)="deleteDonor(x.donorId)">Delete</button></td>
+
+        </tr>
+
+
+      </tbody>
+    </table>
+  </div>
+

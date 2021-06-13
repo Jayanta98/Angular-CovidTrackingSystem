@@ -1,0 +1,64 @@
+<!-- main app container -->
+
+<div class="card  m-3">
+  <div class="card-header">
+
+  </div>
+  <div class="card-body ">
+    <h5 class="card-title"></h5>
+    <h3 class="card-text text-center">Update Patient Details</h3>
+
+
+  </div>
+
+  <div class="container d-flex">
+
+    <div class="form-group col-4">
+      <img class="img-fluid" src="../../assets/p.jpg" alt="">
+    </div>
+    <div class="form-group col-8">
+      <form name="form" (ngSubmit)="f.form.valid && onUpdatePatient()" #f="ngForm" novalidate>
+        <div class="form-group col-10 ">
+          <label for="firstName">Patient Full Name</label>
+          <input type="text" class="form-control" name="firstName" [(ngModel)]="patientUpdateModel.fullName" #firstName="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && firstName.invalid }" required />
+          <div *ngIf="f.submitted && firstName.invalid" class="invalid-feedback">
+            <div *ngIf="firstName.errors.required">Full Name is required</div>
+          </div>
+        </div>
+        <div class="form-group col-10">
+          <label for="phoneNumber"> Patient Phone No.</label>
+          <input type="number" class="form-control" name="phoneNumber" [(ngModel)]="patientUpdateModel.phoneNumber"
+            #phoneNumber="ngModel" [pattern]="mobNumberPattern"
+            [ngClass]="{ 'is-invalid': f.submitted && phoneNumber.invalid }" required />
+          <div *ngIf="f.submitted && phoneNumber.invalid" class="invalid-feedback">
+            <div *ngIf="phoneNumber.errors.required">Phone Number is required</div>
+            <div *ngIf="phoneNumber.errors.pattern">
+              Mobile number not valid.Enter 10 Digit mobile No. only without (+91)
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group col-10">
+          <label for="bloodGroup"> Patient Blood Group</label>
+          <input type="text" class="form-control" name="bloodGroup" [(ngModel)]="patientUpdateModel.bloodGroup" #bloodGroup="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && bloodGroup.invalid }" required />
+          <div *ngIf="f.submitted && bloodGroup.invalid" class="invalid-feedback">
+            <div *ngIf="bloodGroup.errors.required">Blood Group is required</div>
+          </div>
+        </div>
+
+
+          <div class="text-center col-10">
+            <button class="btn btn-primary mr-1 m-2">Update</button>
+            <button class="btn btn-secondary m-2" type="reset">Reset</button>
+            <button class=" btn btn-group-lg btn-warning" [routerLink]="['/patients-list']">Go Back To Patients-List </button>
+          </div>
+      </form>
+
+    </div>
+
+
+
+  </div>
+

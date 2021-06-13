@@ -1,0 +1,58 @@
+
+
+<!-- main app container -->
+
+<div class="card  m-3">
+  <div class="card-header">
+
+  </div>
+  <div class="card-body ">
+    <h5 class="card-title"></h5>
+    <h3 class="card-text text-center">View Patient Details</h3>
+
+
+  </div>
+
+  <div class="container d-flex">
+
+    <div class="form-group col-4">
+      <img class="img-fluid" src="../../assets/p.jpg" alt="">
+    </div>
+    <div class="form-group col-8">
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Patient Full Name</th>
+      <th>Patient Phone No.</th>
+      <th>Patient Blood Group</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{patientViewModel.fullName}}</td>
+      <td>{{patientViewModel.phoneNumber}}</td>
+      <td>{{patientViewModel.bloodGroup}}</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+          <div class="text-center p-2 m-2">
+            <button class=" btn btn-group-lg btn-warning" [routerLink]="['/patients-list']">Go Back To Patients-List </button>
+          </div>
+
+        </td>
+        <td></td>
+    </tr>
+
+  </tbody>
+</table>
+     </div>
+
+
+
+  </div>
+
+
+    
+
+
